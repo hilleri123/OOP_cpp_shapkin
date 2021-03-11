@@ -56,10 +56,10 @@ public:
 
 
 
-class Substruct : public BOperation
+class Substract : public BOperation
 {
 public:
-	explicit Substruct(Expr* left, Expr* right) : BOperation(left, right)
+	explicit Substract(Expr* left, Expr* right) : BOperation(left, right)
 	{}
 
 	virtual int eval() override
@@ -80,7 +80,7 @@ Expr* create_expr(std::string str)
 				create_expr(str.substr(str.find('+')+1))
 				);
 	} else if (str.find('-') != not_found && str.find('-') != str.size()-1) {
-		return new Substruct(
+		return new Substract(
 				create_expr(str.substr(0, str.find('-'))),
 				create_expr(str.substr(str.find('-')+1))
 				);
